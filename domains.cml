@@ -1,0 +1,47 @@
+Domain BienesRaicesComerciales {
+  domainVisionStatement = "Ser el líder mundial en proporcionar información confiable y herramientas innovadoras para facilitar decisiones estratégicas en el mercado de bienes raíces comerciales. Nuestra misión es transformar la manera en que se accede y se utiliza la información inmobiliaria, impulsando el éxito y la eficiencia en las transacciones comerciales a nivel global."
+
+  Subdomain InvestigacionDePropiedades {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Este subdominio es fundamental para el negocio principal de Propiedades de los Alpes, ya que proporciona la información esencial sobre las propiedades comerciales que son el corazón de su servicio."
+  }
+
+  Subdomain GestionDeListados {
+    type = CORE_DOMAIN
+    domainVisionStatement = "La gestión de listados es esencial para la operación central de Propiedades de los Alpes al proporcionar una fuente actualizada de propiedades disponibles para alquiler, venta y otros tipos de transacciones."
+  }
+
+  Subdomain GestionDeTransacciones {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Este subdominio es crucial para el negocio ya que facilita las transacciones inmobiliarias, que son la base de la operación de Propiedades de los Alpes al conectar a propietarios, inquilinos y compradores."
+  }
+  Subdomain InformacionDeInquilinos {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Aunque no es el núcleo del negocio, la información de inquilinos es importante para mantener relaciones sólidas y gestionar contratos de arrendamiento, lo que lo clasifica como un subdominio de soporte."
+  }
+
+  Subdomain ComparativosDeVentas {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Si bien proporciona análisis valiosos, los comparativos de ventas pueden considerarse de soporte ya que complementan la actividad principal de Propiedades de los Alpes al ofrecer información adicional para la toma de decisiones."
+  }
+
+  Subdomain AnalisisDeMercadoYPropiedades {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Este subdominio es esencial ya que proporciona insights clave sobre el mercado inmobiliario y las tendencias de propiedades, lo que ayuda a los clientes a tomar decisiones estratégicas, lo que lo convierte en un elemento central del negocio."
+  }
+
+  Subdomain GestionDeCompanias {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Aunque proporciona información importante, la gestión de compañías puede considerarse un subdominio más genérico en comparación con otros aspectos más centrales del negocio."
+  }
+
+  Subdomain GestionDePlanosYCatastro {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Aunque es crucial para la representación detallada de las propiedades, la gestión de planos y catastro puede considerarse de soporte ya que complementa la información principal sobre las propiedades comerciales."
+  }
+
+  Subdomain ServiciosDeCampoYGIS {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Aunque es importante para recopilar datos en el terreno, los servicios de campo y GIS pueden clasificarse como de soporte ya que complementan la recopilación principal de datos sobre las propiedades."
+  }
+}
