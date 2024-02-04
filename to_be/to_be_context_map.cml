@@ -1,0 +1,208 @@
+/* Mapa de Contexto para Aplicacion de Contratos de los Alpes*/
+ContextMap DDDSampleMap {
+	/* Contexto Internos*/
+	contains CompaniasInquilinosContext
+	contains ContratosTransacionesContext
+	contains ComparativoVentasContext
+	contains LocalizacionContext
+	contains CatastroContext
+	contains InformacionContext
+	contains ValidacionExpertaInformacionContext
+	contains ProcesameintoDatosContext
+	contains AuditoriaContext
+	contains ResultadosAnalisisContext
+
+	/*Contextos Externos o Third Party */
+	contains RuesThirdPartyContext
+	contains ContratosAlpesThirdPartyContext
+	contains OpenMapsThirdPartyContext
+	contains GoogleMapsThirdPartyContext
+	contains IGACThirdPartyContext
+
+	/*Relaciones entre los contextos*/
+
+	CompaniasInquilinosContext [D] <- [U, OHS, ACL] RuesThirdPartyContext
+	ContratosTransacionesContext [D] <- [U, OHS, ACL] ContratosAlpesThirdPartyContext
+	LocationContext [D] <- [U, OHS, ACL] OpenMapsThirdPartyContext
+	LocationContext [D] <- [U, OHS, ACL] GoogleMapsThirdPartyContext
+	CatastroContext [D] <- [U, OHS, ACL] IGACThirdPartyContext
+	CompaniasInquilinosContext [D] <- [U, OHS, ACL] RuesThirdPartyContext
+
+	ContratosTransacionesContext [SK] <-> [SK] ComparativoVentasContext
+
+
+	/*
+	CargoBookingContext [SK]<->[SK] VoyagePlanningContext
+	CargoBookingContext [D]<-[U,OHS,PL] LocationContext
+	VoyagePlanningContext [D]<-[U,OHS,PL] LocationContext 
+	*/
+
+}
+
+BoundedContext CompaniasInquilinosContext {
+	Module Companias{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Companias{
+			Entity Companias
+		}
+	}
+	Module Inquilinos {
+		basePackage = se.citerus.dddsample.domain.model
+		
+		Aggregate Inquilinos{
+			Entity Inquilinos
+		}
+
+	}
+}
+
+BoundedContext ContratosTransacionesContext {
+	Module Contratos{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Contratos{
+			Entity Contratos
+		}
+	}
+	Module Transaciones {
+		basePackage = se.citerus.dddsample.domain.model
+		
+		Aggregate Transaciones{
+			Entity Transaciones
+		}
+
+	}
+}
+
+BoundedContext ComparativoVentasContext {
+	Module ComparativoVentas{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ComparativoVentas{
+			Entity ComparativoVentas
+		}
+	}
+}
+
+BoundedContext LocalizacionContext {
+	Module Localizacion{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Localizacion{
+			Entity Localizacion
+		}
+	}
+}
+
+BoundedContext CatastroContext {
+	Module Catastro{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Catastro{
+			Entity Catastro
+		}
+	}
+}
+
+BoundedContext InformacionContext {
+	Module Informacion{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Informacion{
+			Entity Informacion
+		}
+	}
+}
+
+BoundedContext ValidacionExpertaInformacionContext {
+	Module ValidacionExperta{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ValidacionExperta{
+			Entity ValidacionExperta
+		}
+	}
+}
+
+BoundedContext ProcesameintoDatosContext {
+	Module ProcesameintoDatos{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ProcesameintoDatos{
+			Entity ProcesameintoDatos
+		}
+	}
+}
+
+BoundedContext AuditoriaContext {
+	Module Auditoria{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Auditoria{
+			Entity Auditoria
+		}
+	}
+}
+
+BoundedContext ResultadosAnalisisContext {
+	Module ResultadosAnalisis{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ResultadosAnalisis{
+			Entity ResultadosAnalisis
+		}
+	}
+}
+
+BoundedContext RuesThirdPartyContext {
+	Module Rues{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Rues{
+			Entity Rues
+		}
+	}
+}
+
+BoundedContext ContratosAlpesThirdPartyContext {
+	Module ContratosAlpes{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ContratosAlpes{
+			Entity ContratosAlpes
+		}
+	}
+}
+
+BoundedContext OpenMapsThirdPartyContext {
+	Module OpenMaps{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate OpenMaps{
+			Entity OpenMaps
+		}
+	}
+}
+BoundedContext GoogleMapsThirdPartyContext {
+	Module GoogleMaps{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate GoogleMaps{
+			Entity GoogleMaps
+		}
+	}
+}
+
+
+BoundedContext IGACThirdPartyContext {
+	Module IGAC{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate IGAC{
+			Entity IGAC
+		}
+	}
+}
+
+
