@@ -46,6 +46,8 @@ ContextMap DDDContratosDeLosAlpes  {
 }
 
 BoundedContext CompaniasInquilinosContext {
+	
+	domainVisionStatement = "Gestiona la información relacionada con las compañías propietarias de los inmuebles y los inquilinos, facilitando el manejo de relaciones y contratos."
 	Module Companias{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -64,6 +66,8 @@ BoundedContext CompaniasInquilinosContext {
 }
 
 BoundedContext ContratosTransacionesContext {
+	
+	domainVisionStatement = "Centraliza la creación, gestión y seguimiento de contratos y transacciones realizadas entre compañías e inquilinos."
 	Module Contratos{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -82,6 +86,8 @@ BoundedContext ContratosTransacionesContext {
 }
 
 BoundedContext ComparativoVentasContext {
+	
+	domainVisionStatement = "Proporciona análisis comparativos de ventas y alquileres para informar decisiones estratégicas de precios y posicionamiento en el mercado."
 	Module ComparativoVentas{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -92,6 +98,8 @@ BoundedContext ComparativoVentasContext {
 }
 
 BoundedContext LocalizacionContext {
+
+	domainVisionStatement = "Ofrece servicios de localización y mapeo para identificar la ubicación de propiedades y puntos de interés relevantes para usuarios y compañías."
 	Module Localizacion{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -102,6 +110,8 @@ BoundedContext LocalizacionContext {
 }
 
 BoundedContext CatastroContext {
+
+	domainVisionStatement = "Mantiene registros detallados de las propiedades, incluyendo información catastral y de titularidad, para apoyar la validación y auditoría de datos."
 	Module Catastro{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -112,6 +122,8 @@ BoundedContext CatastroContext {
 }
 
 BoundedContext InformacionContext {
+
+	domainVisionStatement = "Agrupa y centraliza el acceso a información relevante de propiedades, contratos y transacciones para su uso en diversos procesos y análisis."
 	Module Informacion{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -122,6 +134,8 @@ BoundedContext InformacionContext {
 }
 
 BoundedContext ValidacionExpertaInformacionContext {
+
+	domainVisionStatement = "Realiza la validación y verificación de la información segun las visitas de los operacios a las propiedades, utilizando criterios expertos para garantizar su precisión."
 	Module ValidacionExperta{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -132,6 +146,8 @@ BoundedContext ValidacionExpertaInformacionContext {
 }
 
 BoundedContext ProcesameintoDatosContext {
+
+	domainVisionStatement = "Se encarga del procesamiento y análisis de datos recopilados de diferentes contextos para generar insights y reportes útiles para la toma de decisiones."
 	Module ProcesameintoDatos{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -142,6 +158,8 @@ BoundedContext ProcesameintoDatosContext {
 }
 
 BoundedContext AuditoriaContext {
+
+	domainVisionStatement = "Supervisa y audita las operaciones y transacciones realizadas dentro del sistema para asegurar la integridad y conformidad con normativas y políticas."
 	Module Auditoria{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -152,6 +170,8 @@ BoundedContext AuditoriaContext {
 }
 
 BoundedContext ResultadosAnalisisContext {
+
+	domainVisionStatement = "Genera y presenta los resultados de los análisis de datos realizados, ofreciendo una base para decisiones informadas y estrategias de negocio."
 	Module ResultadosAnalisis{
 		basePackage = se.citerus.dddsample.domain.model
 
