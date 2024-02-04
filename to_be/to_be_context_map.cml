@@ -11,7 +11,7 @@ ContextMap DDDContratosDeLosAlpes  {
 	contains CatastroContext
 	contains InformacionContext
 	contains ValidacionExpertaInformacionContext
-	contains ProcesameintoDatosContext
+	contains ProcesamientoDatosContext
 	contains AuditoriaContext
 	contains ResultadosAnalisisContext
 
@@ -38,9 +38,9 @@ ContextMap DDDContratosDeLosAlpes  {
 
 	ValidacionExpertaInformacionContext [P] <-> [P] InformacionContext
 
-	ProcesameintoDatosContext [D] <- [U, OHS] InformacionContext
+	ProcesamientoDatosContext [D] <- [U, OHS] InformacionContext
 
-	AuditoriaContext [D] <- [U, OHS] ProcesameintoDatosContext
+	AuditoriaContext [D] <- [U, OHS] ProcesamientoDatosContext
 
 	ResultadosAnalisisContext [D] <- [U, OHS] AuditoriaContext
 }
@@ -145,10 +145,10 @@ BoundedContext ValidacionExpertaInformacionContext {
 	}
 }
 
-BoundedContext ProcesameintoDatosContext {
+BoundedContext ProcesamientoDatosContext {
 
 	domainVisionStatement = "Se encarga del procesamiento y análisis de datos recopilados de diferentes contextos para generar insights y reportes útiles para la toma de decisiones."
-	Module ProcesameintoDatos{
+	Module ProcesamientoDatos{
 		basePackage = se.citerus.dddsample.domain.model
 
 		Aggregate ProcesameintoDatos{
@@ -181,6 +181,7 @@ BoundedContext ResultadosAnalisisContext {
 	}
 }
 
+// Apartir de este punto, los siguientes contextos se colocan como referencia a los sistemas externos que deben relacionarse con el Dominio.
 BoundedContext RuesThirdPartyContext {
 	type SYSTEM
 	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
