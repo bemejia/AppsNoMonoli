@@ -21,14 +21,27 @@ ContextMap DDDSampleMap {
 
 	/*Relaciones entre los contextos*/
 
-	CompaniasInquilinosContext [D] <- [U, OHS, ACL] RuesThirdPartyContext
-	ContratosTransacionesContext [D] <- [U, OHS, ACL] ContratosAlpesThirdPartyContext
-	LocationContext [D] <- [U, OHS, ACL] OpenMapsThirdPartyContext
-	LocationContext [D] <- [U, OHS, ACL] GoogleMapsThirdPartyContext
-	CatastroContext [D] <- [U, OHS, ACL] IGACThirdPartyContext
-	CompaniasInquilinosContext [D] <- [U, OHS, ACL] RuesThirdPartyContext
+	CompaniasInquilinosContext [D, ACL] <- [U, OHS] RuesThirdPartyContext
+	ContratosTransacionesContext [D , ACL] <- [U, OHS] ContratosAlpesThirdPartyContext
+	LocalizacionContext [D, ACL] <- [U, OHS] OpenMapsThirdPartyContext
+	LocalizacionContext [D, ACL] <- [U, OHS] GoogleMapsThirdPartyContext
+	CatastroContext [D, ACL] <- [U, OHS] IGACThirdPartyContext
+	CompaniasInquilinosContext [D, ACL] <- [U, OHS] RuesThirdPartyContext
 
-	ContratosTransacionesContext [SK] <-> [SK] ComparativoVentasContext
+	ContratosTransacionesContext [P] <-> [P] ComparativoVentasContext
+
+	InformacionContext [D] <- [U, OHS] CompaniasInquilinosContext
+	InformacionContext [D] <- [U, OHS] ContratosTransacionesContext
+	InformacionContext [D] <- [U, OHS] LocalizacionContext
+	InformacionContext [D] <- [U, OHS] CatastroContext
+
+	ValidacionExpertaInformacionContext [P] <-> [P] InformacionContext
+
+	ProcesameintoDatosContext [D] <- [U, OHS] InformacionContext
+
+	AuditoriaContext [D] <- [U, OHS] ProcesameintoDatosContext
+
+	ResultadosAnalisisContext [D] <- [U, OHS] AuditoriaContext
 
 
 	/*
