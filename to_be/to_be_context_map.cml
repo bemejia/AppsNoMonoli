@@ -1,0 +1,249 @@
+/* Mapa de Contexto para Aplicacion de Contratos de los Alpes*/
+ContextMap DDDContratosDeLosAlpes  {
+	type = SYSTEM_LANDSCAPE
+    state = TO_BE
+
+	/* Contexto Internos*/
+	contains CompaniasInquilinosContext
+	contains ContratosTransacionesContext
+	contains ComparativoVentasContext
+	contains LocalizacionContext
+	contains CatastroContext
+	contains InformacionContext
+	contains ValidacionExpertaInformacionContext
+	contains ProcesameintoDatosContext
+	contains AuditoriaContext
+	contains ResultadosAnalisisContext
+
+	/*Contextos Externos o Third Party */
+	contains RuesThirdPartyContext
+	contains ContratosAlpesThirdPartyContext
+	contains OpenMapsThirdPartyContext
+	contains GoogleMapsThirdPartyContext
+	contains IGACThirdPartyContext
+
+	/*Relaciones entre los contextos*/
+	CompaniasInquilinosContext [D, ACL] <- [U, OHS] RuesThirdPartyContext
+	ContratosTransacionesContext [D , ACL] <- [U, OHS] ContratosAlpesThirdPartyContext
+	LocalizacionContext [D, ACL] <- [U, OHS] OpenMapsThirdPartyContext
+	LocalizacionContext [D, ACL] <- [U, OHS] GoogleMapsThirdPartyContext
+	CatastroContext [D, ACL] <- [U, OHS] IGACThirdPartyContext
+
+	ContratosTransacionesContext [P] <-> [P] ComparativoVentasContext
+
+	InformacionContext [D] <- [U, OHS] CompaniasInquilinosContext
+	InformacionContext [D] <- [U, OHS] ContratosTransacionesContext
+	InformacionContext [D] <- [U, OHS] LocalizacionContext
+	InformacionContext [D] <- [U, OHS] CatastroContext
+
+	ValidacionExpertaInformacionContext [P] <-> [P] InformacionContext
+
+	ProcesameintoDatosContext [D] <- [U, OHS] InformacionContext
+
+	AuditoriaContext [D] <- [U, OHS] ProcesameintoDatosContext
+
+	ResultadosAnalisisContext [D] <- [U, OHS] AuditoriaContext
+}
+
+BoundedContext CompaniasInquilinosContext {
+	
+	domainVisionStatement = "Gestiona la información relacionada con las compañías propietarias de los inmuebles y los inquilinos, facilitando el manejo de relaciones y contratos."
+	Module Companias{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Companias{
+			Entity Companias
+		}
+	}
+	Module Inquilinos {
+		basePackage = se.citerus.dddsample.domain.model
+		
+		Aggregate Inquilinos{
+			Entity Inquilinos
+		}
+
+	}
+}
+
+BoundedContext ContratosTransacionesContext {
+	
+	domainVisionStatement = "Centraliza la creación, gestión y seguimiento de contratos y transacciones realizadas entre compañías e inquilinos."
+	Module Contratos{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Contratos{
+			Entity Contratos
+		}
+	}
+	Module Transaciones {
+		basePackage = se.citerus.dddsample.domain.model
+		
+		Aggregate Transaciones{
+			Entity Transaciones
+		}
+
+	}
+}
+
+BoundedContext ComparativoVentasContext {
+	
+	domainVisionStatement = "Proporciona análisis comparativos de ventas y alquileres para informar decisiones estratégicas de precios y posicionamiento en el mercado."
+	Module ComparativoVentas{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ComparativoVentas{
+			Entity ComparativoVentas
+		}
+	}
+}
+
+BoundedContext LocalizacionContext {
+
+	domainVisionStatement = "Ofrece servicios de localización y mapeo para identificar la ubicación de propiedades y puntos de interés relevantes para usuarios y compañías."
+	Module Localizacion{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Localizacion{
+			Entity Localizacion
+		}
+	}
+}
+
+BoundedContext CatastroContext {
+
+	domainVisionStatement = "Mantiene registros detallados de las propiedades, incluyendo información catastral y de titularidad, para apoyar la validación y auditoría de datos."
+	Module Catastro{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Catastro{
+			Entity Catastro
+		}
+	}
+}
+
+BoundedContext InformacionContext {
+
+	domainVisionStatement = "Agrupa y centraliza el acceso a información relevante de propiedades, contratos y transacciones para su uso en diversos procesos y análisis."
+	Module Informacion{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Informacion{
+			Entity Informacion
+		}
+	}
+}
+
+BoundedContext ValidacionExpertaInformacionContext {
+
+	domainVisionStatement = "Realiza la validación y verificación de la información segun las visitas de los operacios a las propiedades, utilizando criterios expertos para garantizar su precisión."
+	Module ValidacionExperta{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ValidacionExperta{
+			Entity ValidacionExperta
+		}
+	}
+}
+
+BoundedContext ProcesameintoDatosContext {
+
+	domainVisionStatement = "Se encarga del procesamiento y análisis de datos recopilados de diferentes contextos para generar insights y reportes útiles para la toma de decisiones."
+	Module ProcesameintoDatos{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ProcesameintoDatos{
+			Entity ProcesameintoDatos
+		}
+	}
+}
+
+BoundedContext AuditoriaContext {
+
+	domainVisionStatement = "Supervisa y audita las operaciones y transacciones realizadas dentro del sistema para asegurar la integridad y conformidad con normativas y políticas."
+	Module Auditoria{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Auditoria{
+			Entity Auditoria
+		}
+	}
+}
+
+BoundedContext ResultadosAnalisisContext {
+
+	domainVisionStatement = "Genera y presenta los resultados de los análisis de datos realizados, ofreciendo una base para decisiones informadas y estrategias de negocio."
+	Module ResultadosAnalisis{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ResultadosAnalisis{
+			Entity ResultadosAnalisis
+		}
+	}
+}
+
+BoundedContext RuesThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
+	Module Rues{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Rues{
+			Entity Rues
+		}
+	}
+}
+
+BoundedContext ContratosAlpesThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
+	Module ContratosAlpes{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ContratosAlpes{
+			Entity ContratosAlpes
+		}
+	}
+}
+
+BoundedContext OpenMapsThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
+	Module OpenMaps{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate OpenMaps{
+			Entity OpenMaps
+		}
+	}
+}
+
+BoundedContext GoogleMapsThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+	Module GoogleMaps{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate GoogleMaps{
+			Entity GoogleMaps
+		}
+	}
+}
+
+
+BoundedContext IGACThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+	Module IGAC{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate IGAC{
+			Entity IGAC
+		}
+	}
+}
+
+
+

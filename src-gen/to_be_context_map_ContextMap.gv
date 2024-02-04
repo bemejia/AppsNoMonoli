@@ -1,0 +1,80 @@
+digraph "ContextMapGraph" {
+graph ["imagepath"="/tmp/GraphvizJava"]
+"AuditoriaContext" ["margin"="0.3","orientation"="311","shape"="egg","fontsize"="16","style"="bold","label"="AuditoriaContext\n","fontname"="sans-serif"]
+"ResultadosAnalisisContext" ["margin"="0.3","orientation"="278","shape"="egg","fontsize"="16","style"="bold","label"="ResultadosAnalisisContext\n","fontname"="sans-serif"]
+"CatastroContext" ["margin"="0.3","orientation"="12","shape"="egg","fontsize"="16","style"="bold","label"="CatastroContext\n","fontname"="sans-serif"]
+"InformacionContext" ["margin"="0.3","orientation"="342","shape"="egg","fontsize"="16","style"="bold","label"="InformacionContext\n","fontname"="sans-serif"]
+"ProcesameintoDatosContext" ["margin"="0.3","orientation"="233","shape"="egg","fontsize"="16","style"="bold","label"="ProcesameintoDatosContext\n","fontname"="sans-serif"]
+"CompaniasInquilinosContext" ["margin"="0.3","orientation"="55","shape"="egg","fontsize"="16","style"="bold","label"="CompaniasInquilinosContext\n","fontname"="sans-serif"]
+"ComparativoVentasContext" ["margin"="0.3","orientation"="317","shape"="egg","fontsize"="16","style"="bold","label"="ComparativoVentasContext\n","fontname"="sans-serif"]
+"ContratosAlpesThirdPartyContext" ["margin"="0.3","orientation"="331","shape"="egg","fontsize"="16","style"="bold","label"="ContratosAlpesThirdPartyContext\n","fontname"="sans-serif"]
+"ContratosTransacionesContext" ["margin"="0.3","orientation"="29","shape"="egg","fontsize"="16","style"="bold","label"="ContratosTransacionesContext\n","fontname"="sans-serif"]
+"GoogleMapsThirdPartyContext" ["margin"="0.3","orientation"="206","shape"="egg","fontsize"="16","style"="bold","label"="GoogleMapsThirdPartyContext\n","fontname"="sans-serif"]
+"LocalizacionContext" ["margin"="0.3","orientation"="135","shape"="egg","fontsize"="16","style"="bold","label"="LocalizacionContext\n","fontname"="sans-serif"]
+"IGACThirdPartyContext" ["margin"="0.3","orientation"="165","shape"="egg","fontsize"="16","style"="bold","label"="IGACThirdPartyContext\n","fontname"="sans-serif"]
+"OpenMapsThirdPartyContext" ["margin"="0.3","orientation"="152","shape"="egg","fontsize"="16","style"="bold","label"="OpenMapsThirdPartyContext\n","fontname"="sans-serif"]
+"RuesThirdPartyContext" ["margin"="0.3","orientation"="242","shape"="egg","fontsize"="16","style"="bold","label"="RuesThirdPartyContext\n","fontname"="sans-serif"]
+"ValidacionExpertaInformacionContext" ["margin"="0.3","orientation"="272","shape"="egg","fontsize"="16","style"="bold","label"="ValidacionExpertaInformacionContext\n","fontname"="sans-serif"]
+"AuditoriaContext" -> "ResultadosAnalisisContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"CatastroContext" -> "InformacionContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"InformacionContext" -> "ProcesameintoDatosContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"ProcesameintoDatosContext" -> "AuditoriaContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"CompaniasInquilinosContext" -> "InformacionContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"ContratosAlpesThirdPartyContext" -> "ContratosTransacionesContext" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"ContratosTransacionesContext" -> "InformacionContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"ContratosTransacionesContext" -> "ComparativoVentasContext" ["fontsize"="12","style"="bold","label"="Partnership","dir"="none","fontname"="sans-serif"]
+"GoogleMapsThirdPartyContext" -> "LocalizacionContext" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"LocalizacionContext" -> "InformacionContext" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"IGACThirdPartyContext" -> "CatastroContext" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"OpenMapsThirdPartyContext" -> "LocalizacionContext" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"RuesThirdPartyContext" -> "CompaniasInquilinosContext" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"ValidacionExpertaInformacionContext" -> "InformacionContext" ["fontsize"="12","style"="bold","label"="Partnership","dir"="none","fontname"="sans-serif"]
+}

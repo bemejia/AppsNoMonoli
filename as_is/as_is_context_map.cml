@@ -1,0 +1,100 @@
+/* Mapa de Contexto para Aplicacion de Contratos de los Alpes*/
+ContextMap DDDContratosDeLosAlpes  {
+	type = SYSTEM_LANDSCAPE
+    state = AS_IS
+
+	/* Contexto Internos*/
+	contains ContratosAlpesMonolitoContext
+
+	/*Contextos Externos o Third Party */
+	contains RuesThirdPartyContext
+	contains ContratosAlpesThirdPartyContext
+	contains OpenMapsThirdPartyContext
+	contains GoogleMapsThirdPartyContext
+	contains IGACThirdPartyContext
+
+	/*Relaciones entre los contextos*/
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] RuesThirdPartyContext
+	ContratosAlpesMonolitoContext [D , CF] <- [U, OHS] ContratosAlpesThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] OpenMapsThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] GoogleMapsThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] IGACThirdPartyContext
+}
+
+BoundedContext ContratosAlpesMonolitoContext {
+	domainVisionStatement = "Contexto de aplicación que engloba todos los coceptos de Contratos de los Alpes y los servicos que brinda"
+	Module ContratosAlpesMonolito{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ContratosAlpesMonolito{
+			Entity ContratosAlpesMonolito
+		}
+	}
+}
+
+
+BoundedContext RuesThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
+	Module Rues{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate Rues{
+			Entity Rues
+		}
+	}
+}
+
+BoundedContext ContratosAlpesThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
+	Module ContratosAlpes{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate ContratosAlpes{
+			Entity ContratosAlpes
+		}
+	}
+}
+
+BoundedContext OpenMapsThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
+	Module OpenMaps{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate OpenMaps{
+			Entity OpenMaps
+		}
+	}
+}
+
+BoundedContext GoogleMapsThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+	Module GoogleMaps{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate GoogleMaps{
+			Entity GoogleMaps
+		}
+	}
+}
+
+
+BoundedContext IGACThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+	Module IGAC{
+		basePackage = se.citerus.dddsample.domain.model
+
+		Aggregate IGAC{
+			Entity IGAC
+		}
+	}
+}
+
+
