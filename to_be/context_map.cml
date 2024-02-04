@@ -1,0 +1,185 @@
+/* The DDD Cargo sample application modeled in CML. Note that we split the application into multiple bounded contexts. */
+ContextMap DDDSampleMap {
+	contains CompaniasInquilinosContext
+	contains ContratosTransaccionesContext
+	contains ComparativoVentasContext
+	contains LocalizacionContext
+	contains CatastroContext
+	contains InformacionContext
+	contains ValidacionExpertaInformacionContext
+	contains ProcesamientoDatosContext
+	contains AuditoriaContext
+	contains ResultadosAnalisisContext
+	contains RUESContext
+	contains ContratosLosAlpesContext
+	contains OpenStreetMapsContext
+	contains GoogleMapsContext
+	contains IGACContext
+}
+
+BoundedContext CompaniasInquilinosContext {
+	Module companias {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Compania {
+			Entity Compania
+		}
+	}
+
+	Module inquilinos {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Inquilino {
+			Entity Inquilino
+		}
+	}
+}
+
+BoundedContext ContratosTransaccionesContext {
+	Module contratos {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Contrato {
+			Entity Contrato
+		}
+	}
+
+	Module transacciones {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Transaccion {
+			Entity Transaccion
+		}
+	}
+}
+
+BoundedContext ComparativoVentasContext {
+	Module comparativoventas {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate ComparativoVenta {
+			Entity ComparativoVenta
+		}
+	}
+}
+
+BoundedContext LocalizacionContext {
+	Module localizacion {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Localizacion {
+			Entity Localizacion
+		}
+	}
+}
+
+BoundedContext CatastroContext {
+	Module catastro {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Catastro {
+			Entity Catastro
+		}
+	}
+}
+
+BoundedContext InformacionContext {
+	Module informacion {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Informacion {
+			Entity Informacion
+		}
+	}
+}
+
+BoundedContext ValidacionExpertaInformacionContext {
+	Module valicionexpertainformacion {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate ValidacionExpertaInformacion {
+			Entity ValidacionExpertaInformacion
+		}
+	}
+}
+
+BoundedContext ProcesamientoDatosContext {
+	Module procesamientodatos {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate ProcesamientoDatos {
+			Entity ProcesamientoDatos
+		}
+	}
+}
+
+BoundedContext AuditoriaContext {
+	Module auditoria {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate Auditoria {
+			Entity Auditoria
+		}
+	}
+}
+
+BoundedContext ResultadosAnalisisContext {
+	Module resultadosanalisis {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate ResultadoAnalisis {
+			Entity ResultadoAnalisis
+		}
+	}
+}
+
+//  Los siguientes contextos se colocan en este modelo con motivo de reflejar los sistemas externos con lo que tendrá relación el dominio
+BoundedContext RUESContext {
+	Module rues {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate RUES {
+			Entity RUES
+		}
+	}
+}
+
+BoundedContext ContratosLosAlpesContext {
+	Module contratoslosalpes {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate ContratosLosAlpes {
+			Entity ContratosLosAlpes
+		}
+	}
+}
+
+BoundedContext OpenStreetMapsContext {
+	Module openstreetmaps {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate OpenStreetMaps {
+			Entity OpenStreetMaps
+		}
+	}
+}
+
+BoundedContext GoogleMapsContext {
+	Module googlemaps {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate GoogleMaps {
+			Entity GoogleMaps
+		}
+	}
+}
+
+BoundedContext IGACContext {
+	Module igac {
+		basePackage = com.pda.ddd.domain.model
+
+		Aggregate IGAC {
+			Entity IGAC
+		}
+	}
+}
