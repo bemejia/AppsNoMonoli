@@ -1,5 +1,8 @@
 /* Mapa de Contexto para Aplicacion de Contratos de los Alpes*/
-ContextMap DDDSampleMap {
+ContextMap DDDContratosDeLosAlpes  {
+	type = SYSTEM_LANDSCAPE
+    state = TO_BE
+
 	/* Contexto Internos*/
 	contains CompaniasInquilinosContext
 	contains ContratosTransacionesContext
@@ -159,6 +162,9 @@ BoundedContext ResultadosAnalisisContext {
 }
 
 BoundedContext RuesThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
 	Module Rues{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -169,6 +175,9 @@ BoundedContext RuesThirdPartyContext {
 }
 
 BoundedContext ContratosAlpesThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
 	Module ContratosAlpes{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -179,6 +188,9 @@ BoundedContext ContratosAlpesThirdPartyContext {
 }
 
 BoundedContext OpenMapsThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
+
 	Module OpenMaps{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -187,7 +199,10 @@ BoundedContext OpenMapsThirdPartyContext {
 		}
 	}
 }
+
 BoundedContext GoogleMapsThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
 	Module GoogleMaps{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -199,6 +214,8 @@ BoundedContext GoogleMapsThirdPartyContext {
 
 
 BoundedContext IGACThirdPartyContext {
+	type SYSTEM
+	domainVisionStatement = "Aplicacion de tercero encargada de enviar datos de propiedades al sistema"
 	Module IGAC{
 		basePackage = se.citerus.dddsample.domain.model
 
@@ -207,5 +224,6 @@ BoundedContext IGACThirdPartyContext {
 		}
 	}
 }
+
 
 
