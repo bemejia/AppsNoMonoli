@@ -4,7 +4,7 @@ ContextMap DDDContratosDeLosAlpes  {
     state = AS_IS
 
 	/* Contexto Internos*/
-	contains ContratosAlpesContext
+	contains ContratosAlpesMonolitoContext
 
 	/*Contextos Externos o Third Party */
 	contains RuesThirdPartyContext
@@ -14,20 +14,20 @@ ContextMap DDDContratosDeLosAlpes  {
 	contains IGACThirdPartyContext
 
 	/*Relaciones entre los contextos*/
-	ContratosAlpesContext [D, CF] <- [U, OHS] RuesThirdPartyContext
-	ContratosAlpesContext [D , CF] <- [U, OHS] ContratosAlpesThirdPartyContext
-	ContratosAlpesContext [D, CF] <- [U, OHS] OpenMapsThirdPartyContext
-	ContratosAlpesContext [D, CF] <- [U, OHS] GoogleMapsThirdPartyContext
-	ContratosAlpesContext [D, CF] <- [U, OHS] IGACThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] RuesThirdPartyContext
+	ContratosAlpesMonolitoContext [D , CF] <- [U, OHS] ContratosAlpesThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] OpenMapsThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] GoogleMapsThirdPartyContext
+	ContratosAlpesMonolitoContext [D, CF] <- [U, OHS] IGACThirdPartyContext
 }
 
-BoundedContext ContratosAlpesContext {
+BoundedContext ContratosAlpesMonolitoContext {
 	domainVisionStatement = "Contexto de aplicación que engloba todos los coceptos de Contratos de los Alpes y los servicos que brinda"
-	Module ContratosAlpes{
+	Module ContratosAlpesMonolito{
 		basePackage = se.citerus.dddsample.domain.model
 
-		Aggregate ContratosAlpes{
-			Entity ContratosAlpes
+		Aggregate ContratosAlpesMonolito{
+			Entity ContratosAlpesMonolito
 		}
 	}
 }
