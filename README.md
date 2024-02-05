@@ -5,11 +5,17 @@ Este proyecto desarrolla un sistema integral para la recopilación, gestión y a
 El proyecto integra datos tanto internos como de terceros (por ejemplo, Rues, Google Maps, IGAC), para proporcionar una vista completa y precisa de las propiedades, mejorando así la toma de decisiones y la capacidad de análisis comparativo de ventas y alquileres. Su arquitectura flexible permite adaptarse a las necesidades cambiantes del mercado y a diferentes regulaciones locales.
 
 ## Estructura del proyecto
-El proyecto cuenta con la carpeta as_is que contiene el mapa de contexto (as_is_context_map.cml) y la estructura de dominio (as_is_domains.cml) de la arquitectura actual del proyecto.
+La imagen Alpes AS-IS.jpg pertenece al el flujo de “Adquisición y enriquecimiento de datos automatizado” AS-IS usando el método EventStorming
 
-Tambien se tiene la carpeta to_be que contiene el mapa de contexto (to_be_context_map.cml) y la estructura de dominio (to_be_domains.cml) de la arquitectura desesada del proyecto.
+La imagen Alpes TO-BE.jpg pertenece al el flujo de “Adquisición y enriquecimiento de datos automatizado” TO-BE usando el método EventStorming
+
+En la carpeta as_is que contiene el mapa de contexto (as_is_context_map.cml) y la estructura de dominio (as_is_domains.cml) de la arquitectura actual del proyecto.
+
+En la carpeta to_be que contiene el mapa de contexto (to_be_context_map.cml) y la estructura de dominio (to_be_domains.cml) de la arquitectura desesada del proyecto.
 
 En la carpeta src-gen se almacenaron las imagenes generadas de los mapas de contexto.
+
+
 
 ## Cómo Instalar Context Mapper
 Context Mapper es una herramienta de modelado para DDD y arquitecturas de microservicios, que facilita la especificación y visualización de contextos acotados y sus relaciones. A continuación, se detalla cómo instalarlo y configurarlo para su uso:
