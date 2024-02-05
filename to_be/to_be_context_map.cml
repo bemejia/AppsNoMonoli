@@ -23,11 +23,11 @@ ContextMap DDDContratosDeLosAlpes  {
 	contains IGACThirdPartyContext
 
 	/*Relaciones entre los contextos*/
-	CompaniasInquilinosContext [D, ACL] <- [U, OHS] RuesThirdPartyContext
-	ContratosTransacionesContext [D , ACL] <- [U, OHS] ContratosAlpesThirdPartyContext
-	LocalizacionContext [D, ACL] <- [U, OHS] OpenMapsThirdPartyContext
-	LocalizacionContext [D, ACL] <- [U, OHS] GoogleMapsThirdPartyContext
-	CatastroContext [D, ACL] <- [U, OHS] IGACThirdPartyContext
+	CompaniasInquilinosContext [D, ACL] <- [U] RuesThirdPartyContext
+	ContratosTransacionesContext [D , ACL] <- [U] ContratosAlpesThirdPartyContext
+	LocalizacionContext [D, ACL] <- [U] OpenMapsThirdPartyContext
+	LocalizacionContext [D, ACL] <- [U] GoogleMapsThirdPartyContext
+	CatastroContext [D, ACL] <- [U] IGACThirdPartyContext
 
 	ContratosTransacionesContext [P] <-> [P] ComparativoVentasContext
 
