@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: gunicorn -b :8000 servicio_catastro:app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    environment:
+      - FLASK_ENV=development
