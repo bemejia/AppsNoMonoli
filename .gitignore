@@ -1,2 +1,2 @@
 venv
-/src/propiedades_de_los_alpes/informacion_catastral/async_comunication/private_key_pub_sub.json
+src/propiedades_de_los_alpes/app_informacion_catastral/informacion_catastral/async_comunication/private_key_pub_sub.json
