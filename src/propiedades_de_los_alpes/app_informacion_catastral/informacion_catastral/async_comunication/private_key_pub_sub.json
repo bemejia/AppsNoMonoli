@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "apps-no-monoliticas-415223",
+  "private_key_id": "2758e477076bdfdf2c64ea6dc1948b3e3dbb5725",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDMPAu4A5g6hSpA\n5xWBA8mHyiW5x8haZvq1iuJn0Z1Gg8vXkGFJnZEQx9B/jj/Ig//FWJO0a2Mgz+Zl\nLBUcerXfYNYVrVNhPSgbkdf6Dq7d4TwDXPDKlc2MhKp7Xo56Mj6iYouKtv1Y2nLV\n6VxXSP0a7+P4ZEnp1GAkDaOJ09wd9phOrbFtkDQhI/jBYicfAe5Tezx+HD0Fp6c1\nq3zkhlQuBEiMzmtgnTiFz5k4stl0LikAoaXe0gcPQkXog9w9RcwWcG2Py1ym6mkl\n9RA/xbxdLTwZJE92BuGwpVTJfY+/Tf9ynGKZm3IsnBfxkttJiNHBsRHYmw0mZlYD\n6SqwZahbAgMBAAECggEADUZn4phFOE84jbXCMDvH89jADAEq34lrCWAo0uO369dG\n6XuRKfZLxsHze58KO/qB0QOEEkmaog2GuxPFntobtpR2RebEESwm+RJz7eUvbkJP\neCPTOO/KHQnwhOACtc73Qu8nL9HbdNTk0E0ApgxwpeQVjCsvTLtzsP7mnt+o9+or\nf/j76mVfXtqsMp972Ce8M8gK8MKCIear5gjNxKqH6ky1UUACw3vOyHISFpkk7Ttj\nrrClk9NXdStktnTvGXHCt4AAvGcv6neIsV9nPbURd27e/GDorgI5swndePYJVEPZ\nQZVnWlMY7l7wABAwRxHPqIiBJEggDnCGnkQEw9nC4QKBgQDumAWl+dCja3nnN1UD\nQHDRbak52XO40lstS1G81lnD9WIb4G08GLu2nEhgT7ZchHy49Qzmg92QLVtvvavr\n4JPH3omODRYPmvGeRwGmXOqjRUmM3t3tskdQaXKKNYrCksvj4gwiLnf+oaJP3Vfd\nIimC+p+xdFoXc0MigQnKB5hjuwKBgQDbIlRwAqju21eSwiuZ0elsQPtNmufdRLp5\nc8xvjFkjzslcONW7A9FONtc/mcaFJZm5jubQGACoK7LmhcU0nmOUyMVLjyw7eCh6\nsCZtshRE50VyJ6Qy2r2m5Zu1bKo84nqf2cLYst3Iz7QjQ9hqGefIWgYCANaowz0E\n45lp5utz4QKBgQCW0L1xRtHdGsi5oL46CffGSf0YNh3yC/XaUavfI9cmCOv1Fw21\nWST+rxcI2ho5rP1xpGR9KYlZ43HS1h/gP9rqEf79LcRuJNDp7ZRbZoxinB97zjyW\nTYTKjXz7ZBDMISKEb5Sf3qO27tC8jvtFKpz20Bk1gIiaHh+npc1cSSTIlQKBgFtW\nyuVJZorxKGaGws/B3E8AIv+tAtqLDEMVjnAsivdO+UWUdxoVtEequjvLaCEVlCbx\nNqokZxmx5UcLGTEemBlrOjmNev1qz0ycYdg1cxdpYtv7RAjifkyzxhxwJ+Fq8Xvx\ns7LJk4JheQ999xX6qE8tnvV0zgTYJHYGPGsVEq1hAoGAek/wAh6nx9M2WJwyF33T\nBT+rLbdeS09Zi2PBLrMEVtMXyfZl5qJlN0MHeUyM6VeG8FTDRgprHqH5X89YXhbX\nRZ5l3hkCAC5OVZVYX/PXxcV9IFNy2vYEHGt78uEM3ccl44PbetuVmSbRGBYosin8\nVN4sM7CIePwR+pXs+14CYg8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "apps-no-monolitica-sa@apps-no-monoliticas-415223.iam.gserviceaccount.com",
+  "client_id": "107824948916269053150",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/apps-no-monolitica-sa%40apps-no-monoliticas-415223.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
