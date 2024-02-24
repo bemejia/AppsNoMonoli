@@ -1,5 +1,5 @@
 from google.cloud import pubsub_v1
-
+from informacion_catastral.modulos.informacion_catastral.aplicacion.servicios import ServicioCatastro
 
 project_id = "apps-no-monoliticas-415223"
 subscription_name = "solicitudes_catastro-sub"
@@ -10,7 +10,14 @@ subscription_path = subscriber.subscription_path(project_id, subscription_name)
 def dar_informacion_catastro_callback(message):
     try:
         print(f"Received message: {message}")
+
+        sr = ServicioCatastro()
+        
         data_message = int(message.data)
+
+        data_propiedad = sr.obtener_informacion_catastral(data_message)
+
+        print(f"Data: {data_propiedad}")
         message.ack()
 
     except Exception as e:
