@@ -1,4 +1,4 @@
-from propiedades_de_los_alpes.informacion_catastral.modulos.informacion_catastral.infraestructura.fabricas import FabricaInformacionCatastral
+from propiedades_de_los_alpes.informacion_catastral.modulos.infraestructura.fabricas import FabricaInformacionCatastral
 from .mapeadores import MapeadorInformacionCatastral
 
 class ServicioCatastro():
@@ -7,7 +7,7 @@ class ServicioCatastro():
 
     @property
     def fabrica_informacion_catastral(self):
-        return self.fabrica_informacion_catastral
+        return self._fabrica_informacion_catastral
 
     def obtener_informacion_catastral(self, id: str):
         mapeador = MapeadorInformacionCatastral()

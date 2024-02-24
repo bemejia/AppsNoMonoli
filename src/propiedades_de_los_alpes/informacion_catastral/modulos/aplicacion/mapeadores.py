@@ -1,5 +1,5 @@
 import requests
-from propiedades_de_los_alpes.informacion_catastral.modulos.informacion_catastral.dominio.entidades import InformacionCatastral
+from propiedades_de_los_alpes.informacion_catastral.modulos.dominio.entidades import InformacionCatastral
 
 # Definir el endpoint
 url = 'https://servicio-tercero-catastro-3ttobfplwa-uc.a.run.app/propiedad/'
@@ -21,7 +21,7 @@ class MapeadorInformacionCatastral:
                               "año_construccion": datos["año_construccion"],
                               "superficie_terreno": datos["superficie_terreno"],
                               "superficie_construida": datos["superficie_construida"]}
-            propietario = {"nombre": datos["nombre_propietario"],
+            propietario = {"nombre_propietario": datos["nombre"],
                            "domicilio_fiscal": datos["domicilio_fiscal"]}
             caracteristicas_adicionales = {"tipo_suelo": datos["tipo_suelo"],
                                            "uso_principal": datos["uso_principal"],

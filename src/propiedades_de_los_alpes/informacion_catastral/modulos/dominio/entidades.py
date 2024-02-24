@@ -1,7 +1,7 @@
 """ Entidades del dominio de la información catastral."""
 
 from dataclasses import dataclass, field
-from .objetos_valor import ObjetoValor as ov
+from . import objetos_valor as ov
 
 @dataclass
 class InformacionCatastral():
@@ -13,4 +13,9 @@ class InformacionCatastral():
     caracteristicas_adicionales: ov.CaracteristicasAdicionales = field(default_factory=ov.CaracteristicasAdicionales)
 
     def __str__(self) -> str:
-        return self.codigo.codigo.upper()
+        return str({"id_propiedad": self.id_propiedad,
+                "tipo_propiedad": self.tipo_propiedad,
+                "ubicacion": self.ubicacion,
+                "datos_fiscales": self.datos_fiscales,
+                "propietario": self.propietario,
+                "caracteristicas_adicionales": self.caracteristicas_adicionales})
