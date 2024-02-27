@@ -1,5 +1,7 @@
 import requests
 from informacion_catastral.modulos.dominio.entidades import InformacionCatastral
+from informacion_catastral.modulos.infraestructura.repositorio import RepositorioLogInformacionCatastral
+from datetime import datetime
 
 # Definir el endpoint
 url = 'https://servicio-tercero-catastro-3ttobfplwa-uc.a.run.app/propiedad/'
@@ -39,7 +41,8 @@ class MapeadorInformacionCatastral:
             datos = respuesta.json()
             informacion_catastral = self.acl_info_catastral(datos)
             # Crear un objeto de la clase InformacionCatastral
-
+            repositorio_log = RepositorioLogInformacionCatastral()
+            repositorio_log.agregar_log(informacion_catastral)
                               
             return informacion_catastral
             
