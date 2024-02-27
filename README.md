@@ -43,3 +43,7 @@ GitPod ofrece un entorno de desarrollo basado en la nube, permitiendo trabajar c
 * Instala la extencion de gitpod en chrome o Abre el proyecto en un workspace de gitpod 
 * El proyecto esta configurado para instalar requirimientos de forma automatica
 * Contex Mapper estara listo
+
+  ## Servicios desplegados
+  Mock servicios terceros: Se encarga de generar un fake con un evento desde un servicio desplegado en cloud run.
+  Propiedades de los Alpes - Información catastral: Se generan las carpetas necesarias para el funcionamiento del sistema siguiendo DDD. Modulos de aplicación, dominio e infraestructura. Este se generó como un cloud function activado por un pub/sub. Además, se agregó una capa de repositorio en cloud SQL con postgres para almacenar el id de los eventos antes de ser entregados a los otros tópicos.
