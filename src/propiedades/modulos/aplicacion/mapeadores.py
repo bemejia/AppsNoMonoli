@@ -2,11 +2,11 @@ from propiedades.seedwork.aplicacion.dto import Mapeador as AppMap
 from propiedades.seedwork.dominio.repositorios import Mapeador as RepMap
 from propiedades.modulos.dominio.entidades import Reserva, Aeropuerto
 from propiedades.modulos.dominio.objetos_valor import Itinerario, Odo, Segmento, Leg
-from .dto import ReservaDTO, ItinerarioDTO, OdoDTO, SegmentoDTO, LegDTO
+from .dto import PropiedadDTO, ItinerarioDTO, OdoDTO, SegmentoDTO, LegDTO
 
 from datetime import datetime
 
-class MapeadorReservaDTOJson(AppMap):
+class MapeadorPropiedadDTOJson(AppMap):
     def _procesar_itinerario(self, itinerario: dict) -> ItinerarioDTO:
         odos_dto: list[OdoDTO] = list()
         for odo in itinerario.get('odos', list()):
@@ -24,13 +24,8 @@ class MapeadorReservaDTOJson(AppMap):
 
         return ItinerarioDTO(odos_dto)
     
-    def externo_a_dto(self, externo: dict) -> ReservaDTO:
-        reserva_dto = ReservaDTO()
-
-        itinerarios: list[ItinerarioDTO] = list()
-        for itin in externo.get('itinerarios', list()):
-            reserva_dto.itinerarios.append(self._procesar_itinerario(itin))
-
+    def externo_a_dto(self, externo: dict) -> PropiedadDTO:
+        reserva_dto = PropiedadDTO()
         return reserva_dto
 
     def dto_a_externo(self, dto: ReservaDTO) -> dict:
