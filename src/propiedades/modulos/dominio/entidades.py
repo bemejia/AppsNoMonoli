@@ -16,7 +16,7 @@ class Propiedad(AgregacionRaiz):
     tamano_min: ov.TamanoMin = field(default_factory=ov.TamanoMin)
     tipo: ov.Tipo = field(default_factory=ov.Tipo)
 
-    def crear_reserva(self, propiedad: Propiedad):
+    def crear_propiedad(self, propiedad: Propiedad):
         self.caracteristica = propiedad.caracteristica
         self.ciudad = propiedad.ciudad
         self.id_propiedad = propiedad.id_propiedad

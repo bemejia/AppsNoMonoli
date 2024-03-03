@@ -1,13 +1,13 @@
 from propiedades.seedwork.aplicacion.comandos import Comando
-from propiedades.modulos.aplicacion.dto import ItinerarioDTO, PropiedadDTO
+from propiedades.modulos.aplicacion.dto import PropiedadDTO
 from .base import CrearPropiedadBaseHandler
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from propiedades.seedwork.aplicacion.comandos import ejecutar_commando as comando
 
 from propiedades.modulos.dominio.entidades import Propiedad
 from propiedades.seedwork.infraestructura.uow import UnidadTrabajoPuerto
-from propiedades.modulos.aplicacion.mapeadores import MapeadorReserva
-from propiedades.modulos.infraestructura.repositorios import RepositorioReservas
+from propiedades.modulos.aplicacion.mapeadores import MapeadorPropiedad
+from propiedades.modulos.infraestructura.repositorios import RepositorioPropiedades
 
 @dataclass
 class CrearPropiedad(Comando):
@@ -33,10 +33,10 @@ class CrearPropiedadHandler(CrearPropiedadBaseHandler):
             ,   tamano_min=comando.tamano_min
             ,   tipo=comando.tipo)
 
-        propiedad: Propiedad = self.fabrica_vuelos.crear_objeto(propiedad_dto, MapeadorReserva())
-        propiedad.crear_reserva(propiedad)
+        propiedad: Propiedad = self.fabrica_vuelos.crear_objeto(propiedad_dto, MapeadorPropiedad())
+        propiedad.crear_propiedad(propiedad)
 
-        repositorio = self.fabrica_repositorio.crear_objeto(RepositorioReservas.__class__)
+        repositorio = self.fabrica_repositorio.crear_objeto(RepositorioPropiedades.__class__)
 
         UnidadTrabajoPuerto.registrar_batch(repositorio.agregar, propiedad)
         UnidadTrabajoPuerto.savepoint()
@@ -44,7 +44,6 @@ class CrearPropiedadHandler(CrearPropiedadBaseHandler):
 
 
 @comando.register(CrearPropiedad)
-def ejecutar_comando_crear_reserva(comando: CrearPropiedad):
+def ejecutar_comando_crear_propiedad(comando: CrearPropiedad):
     handler = CrearPropiedadHandler()
     handler.handle(comando)
-    

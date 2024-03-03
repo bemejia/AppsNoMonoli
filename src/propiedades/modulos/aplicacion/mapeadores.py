@@ -1,6 +1,6 @@
 from propiedades.seedwork.aplicacion.dto import Mapeador as AppMap
 from propiedades.seedwork.dominio.repositorios import Mapeador as RepMap
-from propiedades.modulos.dominio.entidades import Reserva, Aeropuerto
+from propiedades.modulos.dominio.entidades import Propiedad, Aeropuerto
 from propiedades.modulos.dominio.objetos_valor import Itinerario, Odo, Segmento, Leg
 from .dto import PropiedadDTO, ItinerarioDTO, OdoDTO, SegmentoDTO, LegDTO
 
@@ -25,13 +25,13 @@ class MapeadorPropiedadDTOJson(AppMap):
         return ItinerarioDTO(odos_dto)
     
     def externo_a_dto(self, externo: dict) -> PropiedadDTO:
-        reserva_dto = PropiedadDTO()
-        return reserva_dto
+        propiedad_dto = PropiedadDTO()
+        return propiedad_dto
 
-    def dto_a_externo(self, dto: ReservaDTO) -> dict:
+    def dto_a_externo(self, dto: PropiedadDTO) -> dict:
         return dto.__dict__
 
-class MapeadorReserva(RepMap):
+class MapeadorPropiedad(RepMap):
     _FORMATO_FECHA = '%Y-%m-%dT%H:%M:%SZ'
 
     def _procesar_itinerario(self, itinerario_dto: ItinerarioDTO) -> Itinerario:
@@ -60,7 +60,7 @@ class MapeadorReserva(RepMap):
         return Itinerario(odos)
 
     def obtener_tipo(self) -> type:
-        return Reserva.__class__
+        return Propiedad.__class__
 
     def locacion_a_dict(self, locacion):
         if not locacion:
@@ -74,7 +74,7 @@ class MapeadorReserva(RepMap):
         )
         
 
-    def entidad_a_dto(self, entidad: Reserva) -> ReservaDTO:
+    def entidad_a_dto(self, entidad: Propiedad) -> PropiedadDTO:
         
         fecha_creacion = entidad.fecha_creacion.strftime(self._FORMATO_FECHA)
         fecha_actualizacion = entidad.fecha_actualizacion.strftime(self._FORMATO_FECHA)
@@ -100,15 +100,15 @@ class MapeadorReserva(RepMap):
                 odos.append(OdoDTO(segmentos))
             itinerarios.append(ItinerarioDTO(odos))
         
-        return ReservaDTO(fecha_creacion, fecha_actualizacion, _id, itinerarios)
+        return PropiedadDTO(fecha_creacion, fecha_actualizacion, _id, itinerarios)
 
-    def dto_a_entidad(self, dto: ReservaDTO) -> Reserva:
-        reserva = Reserva()
-        reserva.itinerarios = list()
+    def dto_a_entidad(self, dto: PropiedadDTO) -> Propiedad:
+        propiedad = Propiedad()
+        propiedad.itinerarios = list()
 
         itinerarios_dto: list[ItinerarioDTO] = dto.itinerarios
 
         for itin in itinerarios_dto:
-            reserva.itinerarios.append(self._procesar_itinerario(itin))
+            propiedad.itinerarios.append(self._procesar_itinerario(itin))
         
-        return reserva
+        return propiedad

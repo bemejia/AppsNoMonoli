@@ -1,19 +1,17 @@
 import pulsar,_pulsar  
 from pulsar.schema import *
-import uuid
-import time
 import logging
 import traceback
 
-from propiedades.modulos.infraestructura.schema.v1.eventos import EventoReservaCreada
-from propiedades.modulos.infraestructura.schema.v1.comandos import ComandoCrearReserva
+from propiedades.modulos.infraestructura.schema.v1.eventos import EventoPropiedadCreada
+from propiedades.modulos.infraestructura.schema.v1.comandos import ComandoCrearPropiedad
 from propiedades.seedwork.infraestructura import utils
 
 def suscribirse_a_eventos():
     cliente = None
     try:
         cliente = pulsar.Client(f'pulsar://{utils.broker_host()}:6650')
-        consumidor = cliente.subscribe('eventos-reserva', consumer_type=_pulsar.ConsumerType.Shared,subscription_name='aeroalpes-sub-eventos', schema=AvroSchema(EventoReservaCreada))
+        consumidor = cliente.subscribe('eventos-propiedades', consumer_type=_pulsar.ConsumerType.Shared,subscription_name='aeroalpes-sub-eventos', schema=AvroSchema(EventoPropiedadCreada))
 
         while True:
             mensaje = consumidor.receive()
@@ -23,7 +21,7 @@ def suscribirse_a_eventos():
 
         cliente.close()
     except:
-        logging.error('ERROR: Suscribiendose al tópico de eventos!')
+        logging.error('ERROR: Suscribiéndose al tópico de eventos!')
         traceback.print_exc()
         if cliente:
             cliente.close()
@@ -32,7 +30,7 @@ def suscribirse_a_comandos():
     cliente = None
     try:
         cliente = pulsar.Client(f'pulsar://{utils.broker_host()}:6650')
-        consumidor = cliente.subscribe('comandos-reserva', consumer_type=_pulsar.ConsumerType.Shared, subscription_name='aeroalpes-sub-comandos', schema=AvroSchema(ComandoCrearReserva))
+        consumidor = cliente.subscribe('comandos-propiedad', consumer_type=_pulsar.ConsumerType.Shared, subscription_name='aeroalpes-sub-comandos', schema=AvroSchema(ComandoCrearPropiedad))
 
         while True:
             mensaje = consumidor.receive()
@@ -42,7 +40,7 @@ def suscribirse_a_comandos():
             
         cliente.close()
     except:
-        logging.error('ERROR: Suscribiendose al tópico de comandos!')
+        logging.error('ERROR: Suscribiéndose al tópico de comandos!')
         traceback.print_exc()
         if cliente:
             cliente.close()

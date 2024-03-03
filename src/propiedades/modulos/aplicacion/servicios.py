@@ -1,42 +1,42 @@
 from propiedades.seedwork.aplicacion.servicios import Servicio
-from propiedades.modulos.dominio.entidades import Reserva
-from propiedades.modulos.dominio.fabricas import FabricaVuelos
+from propiedades.modulos.dominio.entidades import Propiedad
+from propiedades.modulos.dominio.fabricas import FabricaPropiedades
 from propiedades.modulos.infraestructura.fabricas import FabricaRepositorio
-from propiedades.modulos.infraestructura.repositorios import RepositorioReservas
+from propiedades.modulos.infraestructura.repositorios import RepositorioPropiedades
 from propiedades.seedwork.infraestructura.uow import UnidadTrabajoPuerto
-from .mapeadores import MapeadorReserva
+from .mapeadores import MapeadorPropiedad
 
-from .dto import ReservaDTO
+from .dto import PropiedadDTO
 
 import asyncio
 
-class ServicioReserva(Servicio):
+class ServicioPropiedades(Servicio):
 
     def __init__(self):
         self._fabrica_repositorio: FabricaRepositorio = FabricaRepositorio()
-        self._fabrica_vuelos: FabricaVuelos = FabricaVuelos()
+        self._fabrica_propiedades: FabricaPropiedades = FabricaPropiedades()
 
     @property
     def fabrica_repositorio(self):
         return self._fabrica_repositorio
     
     @property
-    def fabrica_vuelos(self):
-        return self._fabrica_vuelos       
+    def fabrica_propiedades(self):
+        return self._fabrica_propiedades       
     
-    def crear_reserva(self, reserva_dto: ReservaDTO) -> ReservaDTO:
-        reserva: Reserva = self.fabrica_vuelos.crear_objeto(reserva_dto, MapeadorReserva())
-        reserva.crear_reserva(reserva)
+    def crear_propeidad(self, propiedad_dto: PropiedadDTO) -> PropiedadDTO:
+        propiedad: Propiedad = self.fabrica_propiedades.crear_objeto(propiedad_dto, MapeadorPropiedad())
+        propiedad.crear_propiedad(propiedad)
 
-        repositorio = self.fabrica_repositorio.crear_objeto(RepositorioReservas.__class__)
+        repositorio = self.fabrica_repositorio.crear_objeto(RepositorioPropiedades.__class__)
 
-        UnidadTrabajoPuerto.registrar_batch(repositorio.agregar, reserva)
+        UnidadTrabajoPuerto.registrar_batch(repositorio.agregar, propiedad)
         UnidadTrabajoPuerto.savepoint()
         UnidadTrabajoPuerto.commit()
 
-        return self.fabrica_vuelos.crear_objeto(reserva, MapeadorReserva())
+        return self.fabrica_propiedades.crear_objeto(propiedad, MapeadorPropiedad())
 
-    def obtener_reserva_por_id(self, id) -> ReservaDTO:
-        repositorio = self.fabrica_repositorio.crear_objeto(RepositorioReservas.__class__)
-        return self.fabrica_vuelos.crear_objeto(repositorio.obtener_por_id(id), MapeadorReserva())
+    def obtener_propiedad_por_id(self, id) -> PropiedadDTO:
+        repositorio = self.fabrica_repositorio.crear_objeto(RepositorioPropiedades.__class__)
+        return self.fabrica_propiedades.crear_objeto(repositorio.obtener_por_id(id), MapeadorPropiedad())
 
