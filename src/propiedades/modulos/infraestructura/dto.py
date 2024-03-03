@@ -7,11 +7,12 @@ import uuid
 Base = db.declarative_base()
 
 class Propiedad(db.Model):
-    __tablename__ = "itinerarios"
-    odo_orden = db.Column(db.Integer, primary_key=True, nullable=False)
-    segmento_orden = db.Column(db.Integer, primary_key=True, nullable=False)
-    leg_orden = db.Column(db.Integer, primary_key=True, nullable=False)
-    fecha_salida = db.Column(db.DateTime, nullable=False, primary_key=True)
-    fecha_llegada = db.Column(db.DateTime, nullable=False, primary_key=True)
-    origen_codigo = db.Column(db.String, nullable=False, primary_key=True)
-    destino_codigo= db.Column(db.String, nullable=False, primary_key=True)
+    __tablename__ = "propiedades"
+    caracteristica = db.Column(db.String, primary_key=True, nullable=False)
+    ciudad = db.Column(db.String, primary_key=True, nullable=False)
+    id_propiedad = db.Column(db.Integer, primary_key=True, nullable=False)
+    precio_max = db.Column(db.Integer, primary_key=True, nullable=False)
+    precio_min = db.Column(db.Integer, nullable=False, primary_key=True)
+    tamano_max = db.Column(db.Integer, nullable=False, primary_key=True)
+    tamano_min = db.Column(db.Integer, nullable=False, primary_key=True)
+    tipo= db.Column(db.String, nullable=False, primary_key=True)
