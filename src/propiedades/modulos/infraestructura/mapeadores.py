@@ -1,10 +1,9 @@
 from propiedades.seedwork.dominio.repositorios import Mapeador
 from propiedades.modulos.dominio.objetos_valor import NombreAero, Odo, Leg, Segmento, Itinerario, CodigoIATA
-from propiedades.modulos.dominio.entidades import Proveedor, Aeropuerto, Reserva
-from .dto import Reserva as ReservaDTO
-from .dto import Itinerario as ItinerarioDTO
+from propiedades.modulos.dominio.entidades import Aeropuerto, Reserva
+from .dto import Propiedad as PropiedadDTO
 
-class MapeadorReserva(Mapeador):
+class MapeadorPropiedad(Mapeador):
     _FORMATO_FECHA = '%Y-%m-%dT%H:%M:%SZ'
 
     def _procesar_itinerario_dto(self, itinerarios_dto: list) -> list[Itinerario]:

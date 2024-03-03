@@ -22,8 +22,8 @@ def obtener_propiedad(id):
                  "precio_max": fake.random_int(min=100000001, max=500000000), 
                  "tamano_min": fake.random_int(min=50, max=500),  
                  "tamano_max": fake.random_int(min=501, max=1000), 
-                 "caracteristicas": random.sample(caracteristicas, 2)    
-                 }
+                 "caracteristica": fake.random_element(elements=caracteristicas),         
+                 }    
 
     return jsonify(propiedad)
 
