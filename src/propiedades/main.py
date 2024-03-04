@@ -1,14 +1,14 @@
-import propiedades.seedwork.presentacion.api as api
+import seedwork.presentacion.api as api
 import json
-from propiedades.seedwork.dominio.excepciones import ExcepcionDominio
+from seedwork.dominio.excepciones import ExcepcionDominio
 
 from flask import request
 from flask import Response
-from propiedades.modulos.aplicacion.mapeadores import MapeadorPropiedadDTOJson
-from propiedades.modulos.aplicacion.comandos.crear_propiedad import CrearPropiedad
-from propiedades.modulos.aplicacion.queries.obtener_propiedad import ObtenerPropiedad
-from propiedades.seedwork.aplicacion.comandos import ejecutar_commando
-from propiedades.seedwork.aplicacion.queries import ejecutar_query
+from modulos.aplicacion.mapeadores import MapeadorPropiedadDTOJson
+from modulos.aplicacion.comandos.crear_propiedad import CrearPropiedad
+from modulos.aplicacion.queries.obtener_propiedad import ObtenerPropiedad
+from seedwork.aplicacion.comandos import ejecutar_commando
+from seedwork.aplicacion.queries import ejecutar_query
 
 bp = api.crear_blueprint('propiedades', '/propiedades')
 
