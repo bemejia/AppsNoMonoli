@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-catastro-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-catastro
+  template:
+    metadata:
+      labels:
+        app: app-catastro
+    spec:
+      containers:
+      - name: app-catastro
+        image: gcr.io/apps-no-monoliticas-415223/servicio_catastro_enr
+        env:
+          - name: PULSAR_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: mi-secreto
+                key: PULSAR_TOKEN

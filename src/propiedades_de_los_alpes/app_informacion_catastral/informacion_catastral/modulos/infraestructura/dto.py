@@ -7,8 +7,8 @@ Base = declarative_base()
 
 class LogInformacionCatastral(Base):
     __tablename__ = 'log_informacion_catastral'
-
-    id_propiedad = Column(Integer, primary_key=True)
+    id_log = Column(Integer, primary_key=True, autoincrement=True)
+    id_propiedad = Column(Integer)
     fecha_consulta = Column(String)
     fecha_entrega = Column(String)
     

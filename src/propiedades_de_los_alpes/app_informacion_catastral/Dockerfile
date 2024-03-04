@@ -1,16 +1,14 @@
-# Usa una imagen base oficial de Python
-FROM python:3.8
+# Usar una imagen base oficial de Python
+FROM python:3.9-slim
 
 # Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar los archivos necesarios al directorio de trabajo actual (/app) en el contenedor
-COPY . /app
+# Copiar los archivos del proyecto al contenedor
+COPY . .
 
-ENV PYTHONPATH="${PYTHONPATH}:/app"
-
-# Instalar las dependencias de la aplicación
+# Instalar las dependencias del proyecto
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Comando para ejecutar la aplicación
-CMD ["python", "main.py"]
+# Ejecutar el script de Python al iniciar el contenedor
+CMD ["python", "./pulsar_comunication.py"]
