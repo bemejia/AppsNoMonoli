@@ -1,7 +1,6 @@
 import os
 
-from flask import Flask, render_template, request, url_for, redirect, jsonify, session
-from flask_swagger import swagger
+from flask import Flask
 
 # Identifica el directorio base
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -59,13 +58,6 @@ def create_app(configuracion={}):
 
     # Registro de Blueprints
     app.register_blueprint(propiedades.bp)
-
-    @app.route("/spec")
-    def spec():
-        swag = swagger(app)
-        swag['info']['version'] = "1.0"
-        swag['info']['title'] = "My API"
-        return jsonify(swag)
 
     @app.route("/health")
     def health():

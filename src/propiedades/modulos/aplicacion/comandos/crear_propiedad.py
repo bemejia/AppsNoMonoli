@@ -28,7 +28,7 @@ class CrearPropiedadHandler(CrearPropiedadBaseHandler):
             ,   ciudad=comando.ciudad
             ,   id_propiedad=comando.id_propiedad
             ,   precio_max=comando.precio_max
-            ,   precio_max=comando.precio_min
+            ,   precio_min=comando.precio_min
             ,   tamano_max=comando.tamano_max
             ,   tamano_min=comando.tamano_min
             ,   tipo=comando.tipo)
