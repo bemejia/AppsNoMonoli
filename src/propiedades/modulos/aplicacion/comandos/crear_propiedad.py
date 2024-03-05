@@ -24,7 +24,7 @@ class CrearPropiedadHandler(CrearPropiedadBaseHandler):
     
     def handle(self, comando: CrearPropiedad):
         propiedad_dto = PropiedadDTO(
-                caracteristicas=comando.caracteristicas
+                caracteristica=comando.caracteristica
             ,   ciudad=comando.ciudad
             ,   id_propiedad=comando.id_propiedad
             ,   precio_max=comando.precio_max
