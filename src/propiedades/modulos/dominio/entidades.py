@@ -1,20 +1,19 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 
-import propiedades.modulos.dominio.objetos_valor as ov
 from propiedades.modulos.dominio.eventos import PropiedadCreada
 from propiedades.seedwork.dominio.entidades import AgregacionRaiz
 
 @dataclass
 class Propiedad(AgregacionRaiz):
-    caracteristica: ov.Caracteristica = field(default_factory=ov.Caracteristica)
-    ciudad: ov.Ciudad = field(default_factory=ov.Ciudad)
-    id_propiedad: ov.IdPropiedad = field(default_factory=ov.IdPropiedad)
-    precio_max: ov.PrecioMax = field(default_factory=ov.PrecioMax)
-    precio_min: ov.PrecioMin = field(default_factory=ov.PrecioMin)
-    tamano_max: ov.TamanoMax = field(default_factory=ov.TamanoMax)
-    tamano_min: ov.TamanoMin = field(default_factory=ov.TamanoMin)
-    tipo: ov.Tipo = field(default_factory=ov.Tipo)
+    caracteristica: str = field(default=None)
+    ciudad: str = field(default=None)
+    id_propiedad: int = field(default=None)
+    precio_max: int = field(default=None)
+    precio_min: int = field(default=None)
+    tamano_min: int = field(default=None)
+    tamano_max: int = field(default=None)
+    tipo: str = field(default=None)
 
     def crear_propiedad(self, propiedad: Propiedad):
         self.caracteristica = propiedad.caracteristica

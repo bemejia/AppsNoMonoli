@@ -12,7 +12,7 @@ class RepositorioPropiedadesSQLite(RepositorioPropiedades):
         self._fabrica_propiedades: FabricaPropiedades = FabricaPropiedades()
 
     @property
-    def fabrica_propeidades(self):
+    def fabrica_propiedades(self):
         return self._fabrica_propiedades
 
     def obtener_por_id(self, id: UUID) -> Propiedad:
@@ -25,3 +25,11 @@ class RepositorioPropiedadesSQLite(RepositorioPropiedades):
     def agregar(self, propiedad: Propiedad):
         propiedad_dto = self._fabrica_propiedades.crear_objeto(propiedad, MapeadorPropiedad())
         db.session.add(propiedad_dto)
+
+    def actualizar(self, reserva: Propiedad):
+        # TODO
+        raise NotImplementedError
+
+    def eliminar(self, reserva_id: UUID):
+        # TODO
+        raise NotImplementedError

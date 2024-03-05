@@ -6,7 +6,7 @@ from propiedades.seedwork.dominio.eventos import (EventoDominio)
 class PropiedadCreada(EventoDominio):
     caracteristica: str = None
     ciudad: str = None
-    id_propiedad = None
+    id_propiedad: int = None
     precio_max: int = None
     precio_min: int = None
     tamano_max: int = None
