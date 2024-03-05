@@ -33,7 +33,7 @@ class CrearPropiedadHandler(CrearPropiedadBaseHandler):
             ,   tamano_min=comando.tamano_min
             ,   tipo=comando.tipo)
 
-        propiedad: Propiedad = self.fabrica_vuelos.crear_objeto(propiedad_dto, MapeadorPropiedad())
+        propiedad: Propiedad = self.fabrica_propiedades.crear_objeto(propiedad_dto, MapeadorPropiedad())
         propiedad.crear_propiedad(propiedad)
 
         repositorio = self.fabrica_repositorio.crear_objeto(RepositorioPropiedades.__class__)
