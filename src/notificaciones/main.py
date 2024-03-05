@@ -17,10 +17,14 @@ class EventoIntegracion(Record):
     service_name = String()
 
 class PropiedadCreadaPayload(Record):
-    id_reserva = String()
-    id_cliente = String()
-    estado = String()
-    fecha_creacion = Long()
+    caracteristica = String()
+    ciudad = String()
+    id_propiedad = Long()
+    precio_max = Long()
+    precio_min = Long()
+    tamano_max = Long()
+    tamano_min = Long()
+    tipo = String()
 
 class EventoPropiedadCreada(EventoIntegracion):
     data = PropiedadCreadaPayload()
