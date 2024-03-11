@@ -17,22 +17,22 @@ def configurar_pulsar():
     return client
 
 
-def publicar_mensaje_catasto(client, id):
+def publicar_mensaje_catasto(client, msg):
     # Definir topico
     producer = client.create_producer('persistent://nomonoliticas/default/catastro')
     # Enviar mensaje
     sr = ServicioCatastro()
-    data_propiedad = str(sr.obtener_informacion_catastral(id))
+    data_propiedad = str(sr.obtener_informacion_catastral(msg))
     producer.send((data_propiedad).encode('utf-8'))
     
 def escucha_mensajes(client):
-    consumer = client.subscribe('persistent://nomonoliticas/default/catastro', 'test-subscription')
+    consumer = client.subscribe('persistent://nomonoliticas/default/catastro', 'test-subscription-11111111')
     waitingForMsg = True
     while waitingForMsg:
         try:
             msg = consumer.receive()
             print("Received message '{}' id='{}'".format(msg.data(), msg.message_id()))
-            id_propiedad = int(msg.data())
+            id_propiedad = msg.data().decode('utf-8')
             publicar_mensaje_catasto(client, id_propiedad)
             consumer.acknowledge(msg)
             

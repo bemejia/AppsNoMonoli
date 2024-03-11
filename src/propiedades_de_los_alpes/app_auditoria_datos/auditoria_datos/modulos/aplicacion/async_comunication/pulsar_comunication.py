@@ -1,6 +1,8 @@
-import pulsar
+import pulsar, _pulsar
+from pulsar.schema import *
 from dotenv import load_dotenv
 import os
+import aiopulsar
 
 # Carga las variables de entorno del archivo .env
 load_dotenv()
@@ -25,6 +27,7 @@ def publicar_mensaje_general(client, topico, mensaje):
     # Definir topico
     producer = client.create_producer(f'persistent://nomonoliticas/default/{topico}')
     # Enviar mensaje
+    mensaje = str(mensaje)
     producer.send(mensaje.encode('utf-8'))
 
 def escucha_mensajes(client):
@@ -42,5 +45,21 @@ def escucha_mensajes(client):
             print("Still waiting for a message...");
     client.close()
 
+async def suscribirse_a_topico(topico, suscripcion, handler):
+        token = os.getenv('PULSAR_TOKEN')
+        options = {
+        'authentication': pulsar.AuthenticationToken(token),
+        }
+        print(f"Suscribiendose al tópico de eventos... {topico}")
+        async with aiopulsar.connect('pulsar+ssl://pulsar-aws-useast1.streaming.datastax.com:6651', **options) as client:
+            async with client.subscribe(
+                   f'persistent://nomonoliticas/default/{topico}', suscripcion) as consumidor:
+                        while True:
+                            mensaje = await consumidor.receive()
+                            print(mensaje)
+                            datos = mensaje.value()
+                            print(f'Evento recibido: {datos}')
+                            handler(topico, datos.decode('utf-8'))
+                            await consumidor.acknowledge(mensaje)  
 
 

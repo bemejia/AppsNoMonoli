@@ -15,3 +15,12 @@ class RepositorioLogInformacionCatastral():
                                       fecha_entrega= datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         session.add(log)
         session.commit()
+
+    def compensacion_log(self, id: str):
+        try:
+            ultimo_dato = session.query(LogInformacionCatastral).filter(LogInformacionCatastral.id_propiedad == id).order_by(LogInformacionCatastral.id_log.desc()).first()
+            session.delete(ultimo_dato)
+            session.commit()
+        except Exception as e:
+            print(e)
+            session.rollback()
