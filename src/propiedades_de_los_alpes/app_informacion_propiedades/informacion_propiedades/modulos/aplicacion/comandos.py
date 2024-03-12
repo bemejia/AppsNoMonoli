@@ -1,5 +1,5 @@
-from modulos.dominio.entidades import InformacionPropiedad
-from modulos.infraestructura.repositorio import RepositorioInformacionPropiedad
+from informacion_propiedades.modulos.dominio.entidades import InformacionPropiedad
+from informacion_propiedades.modulos.infraestructura.repositorio import RepositorioInformacionPropiedad
 
 def ejecutar_comando(data):
 
