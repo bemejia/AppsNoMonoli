@@ -1,6 +1,6 @@
-from modulos.dominio.entidades import InformacionPropiedad
+from informacion_propiedades.modulos.dominio.entidades import InformacionPropiedad
 from .dto import InformacionPropiedadDTO
-from config.db import engine
+from ...config.db import engine
 from sqlalchemy.orm import sessionmaker
 
 Session = sessionmaker(bind=engine)

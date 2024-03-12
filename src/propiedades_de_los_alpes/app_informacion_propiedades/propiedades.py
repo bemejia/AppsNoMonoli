@@ -2,8 +2,8 @@ import json
 
 from flask import request
 from flask import Response
-from modulos.aplicacion.comandos import ejecutar_comando
-from modulos.aplicacion.queries import ejecutar_query
+from informacion_propiedades.modulos.aplicacion.comandos import ejecutar_comando
+from informacion_propiedades.modulos.aplicacion.queries import ejecutar_query
 
 from flask import Flask
 app = Flask(__name__)
