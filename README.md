@@ -50,5 +50,4 @@ GitPod ofrece un entorno de desarrollo basado en la nube, permitiendo trabajar c
 * Compensación en cada micro (Juan Ramirez)
 * Un micro que envie mal- aleatorio (Alejandro Figueroa)
 * Resultados cuantitativos y cualitativos de experimentación (Juan Ramirez, Beatriz Mejia y Alejandro Figueroa)
-* Refinar el mapa de contextos del TO-BE y los puntos de vistas (Juan Ramirez, Beatriz Mejia y Alejandro Figueroa)
-* Coleccion en postman (Juan Ramirez, Beatriz Mejia y Alejandro Figueroa)
+
