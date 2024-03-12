@@ -22,4 +22,12 @@ class CrearInformacionCatrastral:
         repo = RepositorioInformacionCatastral()
         repo.agregar_informacion_catastral(info_catastral)
 
+class CompesacionCatastral:
+    def __init__(self):
+        ...
+
+    def ejecutar(self, id: int = 0):
+        print("compensacion de Informacion Catastral")
+        client = configurar_pulsar()
+        publicar_mensaje_general(client, "catastro", f"compen {id}")
 

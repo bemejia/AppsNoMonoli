@@ -9,9 +9,15 @@ class EventoCatastro(EventoDominio):
     propietario: str
     caracteristicas_adicionales: str
 
+class EventoLegal(EventoDominio):
+    ids_creadoas: list[str]
+
 class EventoCatastroFallido(EventoDominio):
     id_propiedad: str
     error: str
+
+class EventoLegalFallido(EventoDominio):
+    result: str
 
     
     

@@ -3,9 +3,9 @@ import uuid
 import datetime
 from abc import ABC, abstractmethod
 from auditoria_datos.modulos.infraestructura.repositorio import RepositorioSagaLog
-from auditoria_datos.modulos.dominio.eventos import EventoDominio, EventoCatastro, EventoCatastroFallido
-from auditoria_datos.modulos.aplicacion.comandos.crear_informacion_catastral import  CrearInformacionCatrastral
-
+from auditoria_datos.modulos.dominio.eventos import EventoDominio, EventoCatastro, EventoCatastroFallido, EventoLegal, EventoLegalFallido
+from auditoria_datos.modulos.aplicacion.comandos.crear_informacion_catastral import  CrearInformacionCatrastral, CompesacionCatastral
+from auditoria_datos.modulos.aplicacion.comandos.crear_informacion_legal import CrearInformacionLegal, CompesacionLegal
 
 class Paso():
     id_correlacion: str
@@ -77,7 +77,8 @@ class CordinadorAuditoriaDatos(CoordinadorOrquestacion):
     def iniciar_pasos(self):
         self.pasos = [
             Inicio(),
-            Transaccion(index=1, comando = CrearInformacionCatrastral, evento=EventoCatastro, error=EventoCatastroFallido, compensacion=None),
+            Transaccion(index=1, comando = CrearInformacionCatrastral, evento=EventoCatastro, error=EventoCatastroFallido, compensacion=CompesacionCatastral),
+            Transaccion(index=2, comando = CrearInformacionLegal, evento=EventoLegal, error=EventoLegalFallido, compensacion=CompesacionLegal),
             #Transaccion(index=2, comando=, evento=, error=, compensacion=),
             #Transaccion(index=2, comando=, evento=, error=, compensacion=),
             Fin(index=3)
@@ -88,8 +89,6 @@ class CordinadorAuditoriaDatos(CoordinadorOrquestacion):
         self.persistir_en_saga_log(self.pasos[0])
         self.pasos[1].comando.iniciar(self, id)
         
-
-
     def terminar(self):
         self.persistir_en_saga_log(self.pasos[-1])
 
@@ -111,15 +110,20 @@ class CordinadorAuditoriaDatos(CoordinadorOrquestacion):
             self.pasos[index].comando.ejecutar(self, evento)
             self.persistir_en_saga_log(self.pasos[index])
             if index + 1 < len(self.pasos)-1:
-                self.pasos[index+1].comando.iniciar()
+                print("Iniciando siguiente paso, index actual:", index)
+                
+                self.pasos[index+1].comando.iniciar(self)
             else:
                 self.terminar()
 
         elif isinstance(evento, paso.error):
-            self.pasos[index].compensacion.ejecutar(self, evento)
+            self.pasos[index].compensacion.ejecutar(self)
             self.persistir_en_saga_log(self.pasos[index])
-            if index - 1 > 0:
-                self.pasos[index-1].compensacion.inciar()
+            while index - 1 > 0:
+                self.pasos[index-1].compensacion.ejecutar(self)
+                index -= 1
+                self.persistir_en_saga_log(self.pasos[index])
+            self.persistir_en_saga_log(self.pasos[0])
 
 
 
