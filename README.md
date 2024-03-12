@@ -43,3 +43,12 @@ GitPod ofrece un entorno de desarrollo basado en la nube, permitiendo trabajar c
 * Instala la extencion de gitpod en chrome o Abre el proyecto en un workspace de gitpod 
 * El proyecto esta configurado para instalar requirimientos de forma automatica
 * Contex Mapper estara listo
+
+## Actividades por miembro
+* Microservicio auditoria: coordinar la saga (Juan Ramirez y Beatriz Mejia)
+* BFF (Alejandro Figueroa)
+* Compensación en cada micro (Juan Ramirez)
+* Un micro que envie mal- aleatorio (Alejandro Figueroa)
+* Resultados cuantitativos y cualitativos de experimentación (Juan Ramirez, Beatriz Mejia y Alejandro Figueroa)
+* Refinar el mapa de contextos del TO-BE y los puntos de vistas (Juan Ramirez, Beatriz Mejia y Alejandro Figueroa)
+* Coleccion en postman (Juan Ramirez, Beatriz Mejia y Alejandro Figueroa)
